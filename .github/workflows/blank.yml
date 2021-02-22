@@ -51,4 +51,4 @@ jobs:
         # say --help
 
       - name: 查看命令行工具 screencapture 是否存在并截屏
-        run: which screencapture && screencaputre -m -t jpg -x ~/Desktop/fuck.jpg
+        run: which screencapture && screencapture -m -t jpg -x ~/Desktop/fuck.jpg
