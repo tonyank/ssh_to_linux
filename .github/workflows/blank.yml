@@ -53,9 +53,8 @@ jobs:
       - name: 查看命令行工具 screencapture 是否存在并截屏
         run: which screencapture && screencapture -m -t jpg -x ~/Desktop/fuck.jpg
       
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          path: |
-            ~/Desktop/fuck.jpg
+      - name: 部署 rclone
+        run: wget -c 'https://downloads.rclone.org/v1.54.0/rclone-v1.54.0-osx-amd64.zip' && unzip 'rclone-v1.54.0-osx-amd64.zip' && echo '${{ secrets.RCLONE_CONF }}' > rclone.conf
 
+      - name: 使用 rclone 将文件上传到 OneDrive
+        run: rclone-v1.54.0-osx-amd64/rclone copy --config rclone.conf ~/Desktop/fuck.jpg 'OneDrive_ty_30GB:'
