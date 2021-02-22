@@ -1,12 +1,8 @@
 name: Ubuntu
-on:
-  watch:
-    types: started
+on: push
 jobs:
   Ubuntu:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - name: SSH connection to Actions
-        uses: P3TERX/debugger-action@master
-
-# dfdfdf
+    - name: Setup Debug Session
+      uses: csexton/debugger-action@master
