@@ -52,3 +52,10 @@ jobs:
 
       - name: 查看命令行工具 screencapture 是否存在并截屏
         run: which screencapture && screencapture -m -t jpg -x ~/Desktop/fuck.jpg
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: |
+            ~/Desktop/fuck.jpg
+
