@@ -1,61 +1,9 @@
-name: 查看 GitHub Actions 内置的三大托管容器（Ubuntu、Windows 2019、macOS）的基本信息
-
+name: CI
 on: push
-
 jobs:
-  # job1:
-    # runs-on: ubuntu-20.04
-
-    # steps:
-      # - name: 显示系统信息
-        # run: uname -a
-
-      # - name: 查看主机名
-        # run: hostname
-
-      # - name: 查看磁盘使用情况
-        # run: df -h
-
-  # job2:
-    # runs-on: windows-2019
-
-    # steps:
-      # - name: 显示系统信息
-        # run: cmd /c ver
-
-      # - name: 查看主机名
-        # run: hostname
-
-      # - name: 查看磁盘使用情况
-        # run: df -h
-
-      # - name: 查看 dism 的版本号
-        # run: dism /?
-
-        # # shell: cmd
-
-  job3:
-    runs-on: macos-latest
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-      # - name: 显示系统信息
-        # run: uname -a
-
-      # - name: 查看主机名
-        # run: hostname
-
-      # - name: 查看磁盘使用情况
-        # run: df -h
-
-      - name: 查看命令行工具 say 的使用手册
-        run: man say > man-say.txt
-        # say --help
-
-      # - name: 查看命令行工具 screencapture 是否存在并截屏
-        # run: which screencapture && screencapture -m -t jpg -x ~/Desktop/GitHub的mac主机上的截图.jpg
-      
-      - name: 部署 rclone
-        run: wget -c 'https://downloads.rclone.org/v1.54.0/rclone-v1.54.0-osx-amd64.zip' && unzip 'rclone-v1.54.0-osx-amd64.zip' && echo '${{ secrets.RCLONE_CONF }}' > rclone.conf
-
-      - name: 使用 rclone 将文件上传到 OneDrive
-        run: rclone-v1.54.0-osx-amd64/rclone copy --config rclone.conf man-say.txt 'OneDrive_ty_30GB:'
+    - uses: actions/checkout@v1
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v1
