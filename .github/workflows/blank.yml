@@ -7,38 +7,43 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: 执行命令
+      - name: 显示系统信息
         run: uname -a
 
       - name: 执行命令
         run: hostname
 
-      - name: 执行命令
+      - name: 查看磁盘使用情况
         run: df -h
 
   job2:
     runs-on: windows-2019
 
     steps:
+      - name: 显示系统信息
+        run: ver
+
       - name: 执行命令
-        run: |
-          ver
-          hostname
-          : 这个命令应该不存在，是错的
-          df -h
-          : 查看 dism 的版本号
-          dism /?
+        run: hostname
+
+      - name: 查看磁盘使用情况
+        run: df -h
+
+      - name: 查看 dism 的版本号
+        run: dism /?
+
         shell: cmd
 
   job3:
     runs-on: macos-latest
 
     steps:
-      - name: 查看信息
-        run: |
-          uname -a
-          hostname
-          df -h
-          : 查看命令行工具 say 的使用手册
-          say --help
+      - name: 显示系统信息
+        run: uname -a
 
+      - name: 查看磁盘使用情况
+        run: df -h
+
+      - name: 查看命令行工具 say 的使用手册
+        run: man say
+        # say --help
