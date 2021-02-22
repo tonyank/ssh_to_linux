@@ -1,13 +1,26 @@
-name: 查看
+name: 查看 GitHub Actions 内置的三大托管容器（Ubuntu、Windows 2019、macOS）的基本信息
 
 on: push
 
 jobs:
   job1:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 执行命令
+        run: uname -a
+
+      - name: 执行命令
+        run: hostname
+
+      - name: 执行命令
+        run: df -h
+
+  job2:
     runs-on: windows-2019
 
     steps:
-      - name: 查看信息
+      - name: 执行命令
         run: |
           ver
           hostname
@@ -15,8 +28,9 @@ jobs:
           df -h
           : 查看 dism 的版本号
           dism /?
+        shell: cmd
 
-  job2:
+  job3:
     runs-on: macos-latest
 
     steps:
@@ -26,14 +40,5 @@ jobs:
           hostname
           df -h
           : 查看命令行工具 say 的使用手册
-          say -help
+          say --help
 
-  job3:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - name: 查看信息
-        run: |
-          uname -a
-          hostname
-          df -h
