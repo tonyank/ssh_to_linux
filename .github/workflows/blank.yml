@@ -49,3 +49,6 @@ jobs:
       - name: 查看命令行工具 say 的使用手册
         run: man say
         # say --help
+
+      - name: 查看命令行工具 screencapture 是否存在并截屏
+        run: which screencapture && screencaputre -m -t jpg -x ~/Desktop/fuck.jpg
