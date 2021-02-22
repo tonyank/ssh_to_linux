@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: 显示系统信息
-        run: ver
+        run: cmd /c ver
 
       - name: 查看主机名
         run: hostname
