@@ -1,0 +1,39 @@
+name: 查看
+
+on: push
+
+jobs:
+  job1:
+    runs-on: windows-2019
+
+    steps:
+      - name: 查看信息
+        run: |
+          ver
+          hostname
+          : 这个命令应该不存在，是错的
+          df -h
+          : 查看 dism 的版本号
+          dism /?
+
+  job2:
+    runs-on: macos-latest
+
+    steps:
+      - name: 查看信息
+        run: |
+          uname -a
+          hostname
+          df -h
+          : 查看命令行工具 say 的使用手册
+          say -help
+
+  job3:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 查看信息
+        run: |
+          uname -a
+          hostname
+          df -h
