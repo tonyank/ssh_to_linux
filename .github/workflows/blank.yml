@@ -1,8 +1,11 @@
-name: Ubuntu
+name: fuck
 on: push
 jobs:
   Ubuntu:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Debug Session
-      uses: csexton/debugger-action@master
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
+
+      - name: 解除 15 分钟自动断开连接的限制
+        run: touch /tmp/keepalive
