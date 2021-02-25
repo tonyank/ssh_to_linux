@@ -1,10 +1,11 @@
-name: dfdfdfdf
+name: ssh
 on: push
 jobs:
-  Ssh:
-    runs-on: macos-10.15
+  ssh:
+    runs-on: ubuntu-20.04
+
     steps:
-      - name: 解除 15 分钟自动断开连接的限制（这一步骤要先执行，否则下一步骤会一直执行、轮不到这个步骤）
+      - name: unblock 15 min
         run: touch /tmp/keepalive
 
       - name: Setup Debug Session
