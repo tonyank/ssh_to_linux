@@ -1,4 +1,4 @@
-name: sshhhh
+name: sshh
 on: push
 jobs:
   ssh:
