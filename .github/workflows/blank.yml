@@ -1,4 +1,4 @@
-name: CI123456
+name: CI1234567
 on: [push]
 jobs:
   build:
