@@ -1,9 +1,12 @@
-name: CI123456789
+name: CI12345678
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    
+    - name: Checkout code
     - uses: actions/checkout@v2
+    
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
